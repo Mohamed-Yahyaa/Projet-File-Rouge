@@ -155,29 +155,4 @@ function EditMyAccount($firstName,$lastName,$id){
     }
 
 
-
-
-// function password( $email,$firstName){
-
-//     $rowLogin="SELECT * FROM `users` where firstName='$firstName'and `email`='$email' ";
-//      $query=mysqli_query($this->getConnection(),$rowLogin);
-//     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-    
-  
-//     $user = new User();
-
-//     $TableData = array();
-//     foreach ($data as $value_Data) {
-        
-//         // $user->setmatricule($value_Data['Matricule']);
-//         $user->setPassword ($value_Data['passWord']);
-//         $user->setFirstname($value_Data['firstName']);
-//         $user->setEmail($value_Data['email']);
-
-//         array_push($TableData, $user);
-
-
-//     }
-//     return $TableData;
-// }
 }

@@ -1,4 +1,67 @@
-<!DOCTYPE html>
+<?php
+// Initialize the session
+session_start();
+
+include "AuthenticationManager.php";
+
+$authManager = new AuthenticationManager();
+ 
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: ../index.php");
+    exit;
+}
+ 
+// Include config file
+require_once "AuthenticationManager.php";
+ 
+// Define variables and initialize with empty values
+$email = $password = "";
+$email_err = $password_err = $login_err = "";
+
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+    // Check if email is empty
+    if(isset($_POST['email'])){
+ 
+        if(empty(trim($_POST["email"]))){
+        $email_err = "Please enter email.";
+        } else{
+        $email = trim($_POST["email"]);
+            
+            
+            $email = $_POST["email"];
+         }
+        
+    }
+  
+    
+    // Check if password is empty
+    if(isset($_POST['password'])){ 
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Please enter your password.";
+    } else{
+        $password = trim($_POST["password"]);
+    }
+}
+    // Validate credentials
+    if(empty($email_err) && empty($password_err)){
+        $hasLoging = $authManager->login($password, $email);
+        if($hasLoging == true){
+            // Redirect user to welcome page
+              header("location: ../index.php");
+        } else{
+          // Password is not valid, display a generic error message
+            $login_err = "Invalid email or password.";
+          } 
+    } else{
+                echo "Oops! Something went wrong. Please try again later.";
+    }     
+}
+?>
+ 
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,7 +86,6 @@
 
 <body class="page-login">
 
-
     <input id="toggle" type="checkbox">
     <script type="text/javascript">
         document.getElementById("toggle").addEventListener("click", function() {
@@ -32,8 +94,7 @@
 
     </script>
 
-    <!-- Loader-->
-    <div id="page-preloader">
+        <div id="page-preloader">
         <div class="preloader-1">
             <div class="loader-text">Loading</div>
             <span class="line line-1"></span>
@@ -48,8 +109,6 @@
         </div>
 
     </div>
-    <!-- Loader end-->
-
 
     <div class="page-wrapper">
         <main class="page-first-screen">
@@ -68,14 +127,25 @@
                                 <li><a href="http://www.twitter.com"><img src="assets/img/twitter.svg" alt="twitter"></a></li>
                             </ul>
                         </div>
+                        <?php 
+        if(!empty($login_err)){
+            echo '<div class="alert alert-danger">' . $login_err . '</div>';
+        }        
+        ?>
+
+         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-login__box">
                             <div class="uk-heading-line uk-text-center"><span>or with Email</span></div>
                             <form action="#!">
-                                <div class="uk-margin"><input class="uk-input" type="email" placeholder="Email"></div>
-                                <div class="uk-margin"><input class="uk-input" type="text" placeholder="Username"></div>
-                                <div class="uk-margin"><input class="uk-input" type="password" placeholder="Password"></div>
-                                <div class="uk-margin"><button class="uk-button uk-button-danger uk-width-1-1" type="button">Register</button></div>
-                                <div class="uk-text-center"><span>Already have an account?</span><a class="uk-margin-small-left" href="01_login-in.html">Log In</a></div>
+                                <div class="uk-margin"><input class="uk-input" type="email" placeholder="Email" <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>"></div>
+                                <?php echo $email_err; ?>
+                                <!-- <div class="uk-margin"><input class="uk-input" type="text" placeholder="Username"></div> -->
+                                <div class="uk-margin"><input class="uk-input" type="password" placeholder="Password" <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>></div>
+                                <?php echo $password_err; ?>
+                                <div class="uk-margin"><a class="uk-button uk-button-danger uk-width-1-1" type="button" href="signup.php" >Register</a></div>
+                                <div class="uk-text-center"><span>Already have an account?</span><a class="uk-margin-small-left" href="signup.php">Sign-up</a></div>
+                                
+                                
                             </form>
                         </div>
                     </div>
