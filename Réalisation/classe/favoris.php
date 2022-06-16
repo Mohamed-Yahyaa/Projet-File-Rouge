@@ -4,6 +4,7 @@ class favoris{
 
     private $id;
     private $userReference;
+    private $favorisLineList = array();
 
     public function getId()
     { 
@@ -24,6 +25,14 @@ class favoris{
     public function setUserReference($userReference)
     {
         $this->userReference = $userReference;
+    }
+
+    function setFavorisLineList($favorisLineList){
+        array_push($this->favorisLineList, $favorisLineList);
+    }
+
+    function getFavorisLineList(){
+        return $this->favorisLineList;
     }
 
 }

@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php 
+
+include "../manager/cartManager.php";
+
+session_start();
+
+
+
+$cartManager = new favorisManager ();
+$cartManager->initCode();
+
+
+
+
+// $data = $cartManager->getAllHotels();
+// if(isset($_COOKIE['cartCookie'])){
+// $favoris = $cartManager->getIdFavoris($_COOKIE['cartCookie']);
+
+
+// $favorisList = $cart->getFavorisLineList()[0];
+
+//     foreach($favorisLineList as $favorisLine){
+//         $quantityTotal += $cartLine->getProductCartQuantity();
+//     }
+// }
+?>
+
 <head>
     <meta charset="utf-8">
     <title>TeamHost - Join now and play mighty games!</title>
@@ -10,9 +37,9 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="format-detection" content="telephone=no">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/libs.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/libs.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
 
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -165,8 +192,8 @@
                                     <div class="swiper-slide">
                                         <div class="game-card --horizontal">
                                             <div class="game-card__box">
-                                                <div class="game-card__media"><a href="10_game-profile.html"><img src="assets/img/trending2.jpg" alt="Alien Games" /></a></div>
-                                                <div class="game-card__info"><a class="game-card__title" href="10_game-profile.html"> Alien Games</a>
+                                                <div class="game-card__media"><a href="10_game-profile.html"><img src="assets/img/trending2.jpg" <?php echo $value->getPhoto()?> alt="Alien Games" /></a></div>
+                                                <div class="game-card__info"><a class="game-card__title"href="product-details.php?id=<?php echo $value->getId()?>> Alien Games</a>
                                                     <div class="game-card__genre">Warring factions have brought the Origin System to the brink of destruction.</div>
                                                     <div class="game-card__rating-and-price">
                                                         <div class="game-card__rating"><span>4.5</span><i class="ico_star"></i></div>

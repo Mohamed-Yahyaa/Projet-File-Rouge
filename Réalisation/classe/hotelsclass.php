@@ -2,32 +2,32 @@
 
 class Hotel
 {
-    private $id;
-    private $nom;
+    private $id_hotels;
+    private $nom_hotels;
     private $description;
     private $adresse;
     private $date_expiration;
     private $photo;
 
 
-    public function getId()
+    public function getId_hotels()
     {
-        return $this->id;
+        return $this->id_hotels;
     }
 
-    public function setId($id)
+    public function setId_hotels($id_hotels)
     {
-        $this->id = $id;
+        $this->id_hotels = $id_hotels;
     }
 
-    public function getNom()
+    public function getNom_hotels()
     {
-        return $this->nom;
+        return $this->nom_hotels;
     }
 
-    public function setNom($nom)
+    public function setNom_hotels($nom_hotels)
     {
-        $this->nom = $nom;
+        $this->nom_hotels = $nom_hotels;
     }
 
     public function getDescription()

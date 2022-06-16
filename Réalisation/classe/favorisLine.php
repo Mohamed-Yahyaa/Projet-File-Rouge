@@ -5,6 +5,7 @@ class favorisLine
     private $idfavorisLine;
     private $idhotels;
     private $idfavoris;
+    private $hotels;
    
 
     public function getIdfavorisLine()
@@ -37,6 +38,17 @@ class favorisLine
             public function setIdfavoris($idfavoris)
             {
                 $this->idfavoris = $idfavoris;
+            }
+
+
+            public function getHotels()
+            {
+                return $this->hotels;
+            }
+
+            public function setHotels($hotels)
+            {
+                $this->hotels = $hotels;
             }
 
        }
