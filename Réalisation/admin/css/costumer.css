@@ -1,0 +1,73 @@
+.card{
+    margin-right: 12px !important;
+}
+
+.btn-primary{
+
+    background-color: #1f698c !important;
+}
+.btn{
+    
+    margin-top: 12px;
+
+}
+.navbar-sidebar .navbar__list li a:hover {
+    color: #0a111f !important;
+}
+.active{
+color: #0a111f !important;
+}
+
+.aIN{
+    color: #0a111f !important;
+}
+
+
+.rowTable{
+    margin-right: -78px !important;
+    margin-left: -73px !important;
+}
+.svgX{
+
+margin-top: 7px;
+}
+.menu-sidebar{
+    width: 200px !important;
+    
+}
+ .main-content{
+       margin-left: -76px;
+    margin-right: 41px;
+
+}
+.header-desktop{
+    left: 197px !important;
+}
+
+body {
+    font-size: 14px !important;
+}
+
+.titre{
+    color : #1f698c ;
+    margin-bottom: 50px;
+}
+/* .imgLogin{
+    font-size: 50px !important;
+} */
+
+/* recherch  */
+.recherchinput{
+    margin-left: 100px;
+     margin-bottom:80px;
+     margin-top:-10px
+     }
+     .login-content{
+        margin-top:-30px;
+       
+       }
+
+/* .pass  {
+
+    margin-top: -25px;
+} */

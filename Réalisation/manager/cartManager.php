@@ -104,6 +104,31 @@ class favorisManager {
         // }
 
       }
+      public function Hotels(){
+
+        $sql = "SELECT * FROM  hotels ";
+        $query = mysqli_query($this->getConnection(), $sql);
+        $result =  mysqli_fetch_all($query, MYSQLI_ASSOC);
+        return $result;
+        $hotels = new Hotel();
+        $hotelsList = array();
+        foreach ($result as $value_Data) {
+            $hotels = new Hotel();
+
+            $hotels->setId_hotels($value_Data['id_hotels']);
+            $hotels->setNom_hotels($value_Data['nom_hotels']);
+            $hotels->setDescription($value_Data['description']);
+            $hotels->setDate_expiration($value_Data["date_expiration"]);
+            $hotels->setAdresse($value_Data['adresse']);
+            $hotels->setImage($value_Data['photo']);
+            array_push($hotelsList, $hotels);
+        }
+          return $hotelsList;
+        // if(isset($_SESSION["product"])){
+        //     return $_SESSION["product"];
+        // }
+
+      }
 
     //   public function getCartQuantity(){
     //       if(isset($_SESSION["quantity"])){
