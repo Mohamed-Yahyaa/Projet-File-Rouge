@@ -1,5 +1,5 @@
 <?php
-    include "DevisManager.php";
+    include "DevisManager copy.php";
     // Trouver tous les employés depuis la base de données 
     $devisManager = new DevisManager();
     $data = $devisManager->afficher_devis();
@@ -113,7 +113,7 @@
                     <div class="container-fluid">
                     <div>
            <h1 class="titre text-center ">
-           <strong>TABLEAU DES PRODUITS</strong>
+           <strong>TABLEAU DES HOTELS</strong>
            </h1>
        </div>
          
@@ -136,13 +136,12 @@
             ?>
 
             <tr>
-                <td><?= $value->getNom_Hotel() ?></td>
-                <td><?= $value->getDescription() ?></td>
-                <td><?= $value->getPhoto() ?></td>
-                <td><?= $value->getAdress() ?></td>
+                <td><?= $value->getId_favoris() ?></td>
+                <td><?= $value->getId_hotels() ?></td>
+               
                 <td>
                    
-                    <a href="suprimmer.php?id=<?php echo $value->getId() ?>">Supprime</a>
+                    <a href="suprimmer.php?id=<?php echo $value->getId_favoris() ?>">Supprime</a>
                 </td>
             </tr>
                                            
@@ -151,8 +150,8 @@
                                     </table>
                                 </div>
                                 <a
-                  href="ajouter.php"
-                  class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle hotels </a>
+                  href="ajouter copy.php"
+                  class="btn btn-primary btn-block text-uppercase mb-3">Ajouter nouvelle produit </a>
                                                             
                             </div>
                         </div>
@@ -181,7 +180,7 @@
                     <div class="container-fluid">
                     <div>
            <h1 class="titre text-center ">
-           <strong>TABLEAU </strong>
+           <strong>TABLEAU DES CATEGORIE</strong>
            </h1>
        </div>
          
