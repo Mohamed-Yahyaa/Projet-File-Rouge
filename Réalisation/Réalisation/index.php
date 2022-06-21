@@ -90,7 +90,7 @@
                         <li class="uk-active"><a href="03_home.html"><i class="ico_home"></i><span>Home</span></a></li>
                         <li class="uk-nav-header">Account</li>
                         
-                        <li><a href="05_favourites.html"><i class="ico_favourites"></i><span>Favourites</span></a></li>
+                        <li><a href="detailfavoris.php"><i class="ico_favourites"></i><span>Favourites</span></a></li>
     
                         <!-- <li class="uk-nav-header">Main</li>
                         <li><a href="09_games-store.html"><i class="ico_store"></i><span>Store</span></a></li>
@@ -215,10 +215,13 @@
                             <div class="swiper">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
+                                    <?php
+                    foreach($data as $value){
+            ?>
                                         <div class="game-card">
                                             <div class="game-card__box">
-                                                <div class="game-card__media"><a href="10_game-profile.html"><img src="assets/img/game-1.jpg" alt="Solitary Crusade" /></a></div>
-                                                <div class="game-card__info"><a class="game-card__title" href="10_game-profile.html"> Solitary Crusade</a>
+                                                <div class="game-card__media"><a href="detailfavoris.php"><img src="assets/img/game-1.jpg" alt="Solitary Crusade" /></a></div>
+                                                <div class="game-card__info"><a class="game-card__title" href="detailfavoris.php"> <?= $value->getNom_Hotel() ?></a>
                                                     <div class="game-card__genre">Shooter / Platformer</div>
                                                     <div class="game-card__rating-and-price">
                                                         <!-- <div class="game-card__rating"><span>4.8</span><i class="ico_star"></i></div>
@@ -238,6 +241,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php }?>
                                     </div>
                                     </div>
                                     </div>

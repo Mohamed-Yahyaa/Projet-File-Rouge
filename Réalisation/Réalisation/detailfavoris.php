@@ -1,24 +1,26 @@
+<?php
 
-<?php 
-
-include "../manager/cartManager.php";
-
-session_start();
-
-
-
-$cartManager = new favorisManager ();
-$hotel = $cartManager->Hotels();
+include "DevisManager.php";
+// include "Devis.php";
+// Trouver tous les employés depuis la base de données 
+$DevisManager = new DevisManager();
 
 
-foreach($hotel as $value){
- $nom = $value->getNom_hotels();
+if(!empty($_POST)){
+	$deviis = new Hotels;
+	
+	$deviis->setNom_Hotel($_POST['Nom_Hotel']);
+	$deviis->setDescription($_POST['Description']);
+	$deviis->setPhoto($_POST['Photo']);
+	$deviis->setAdress($_POST['Adress']);
+	$DevisManager->Ajouter($deviis);
+	
+	// Redirection vers la page index.php
+	header("Location:index.php");
 }
+
+
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,9 +34,9 @@ foreach($hotel as $value){
     <meta name="HandheldFriendly" content="true">
     <meta name="format-detection" content="telephone=no">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/libs.min.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/libs.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -45,11 +47,16 @@ foreach($hotel as $value){
 
 <body class="page-store">
 
- <!-- <input id="toggle" type="checkbox"> -->
-   
+    <input id="toggle" type="checkbox">
+    <script type="text/javascript">
+        document.getElementById("toggle").addEventListener("click", function() {
+            document.getElementsByTagName('body')[0].classList.toggle("dark-theme");
+        });
+
+    </script>
 
     <!-- Loader-->
-    <div id="page-preloader">
+    <!-- <div id="page-preloader">
         <div class="preloader-1">
             <div class="loader-text">Loading</div>
             <span class="line line-1"></span>
@@ -63,7 +70,7 @@ foreach($hotel as $value){
             <span class="line line-9"></span>
         </div>
 
-    </div>
+    </div> -->
     <!-- Loader end-->
 
 
@@ -72,14 +79,14 @@ foreach($hotel as $value){
             <div class="page-header__inner">
                 <div class="page-header__sidebar">
                     <div class="page-header__menu-btn"><button class="menu-btn ico_menu is-active"></button></div>
-                    <div class="page-header__logo"><img src="assets/img/logo.png" alt="logo"><span class="page-header__logo_text">TEAMHOST</span></div>
+                    <div class="page-header__logo"><img src="assets/img/logo.png" alt="logo"><span class="page-header__logo_text">HOTELS</span></div>
                 </div>
                 <div class="page-header__content">
                     <div class="page-header__search">
-                        <div class="search">
+                        <!-- <div class="search">
                             <div class="search__input"><i class="ico_search"></i><input type="search" name="search" placeholder="Search"></div>
                             <div class="search__btn"><button type="button"><i class="ico_microphone"></i></button></div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="page-header__action">
                         <a class="action-btn" href="06_chats.html"><i class="ico_message"></i><span class="animation-ripple-delay1"></span></a>
@@ -94,29 +101,16 @@ foreach($hotel as $value){
                 <div class="sidebar-box">
                     <ul class="uk-nav">
                         <li><a href="03_home.html"><i class="ico_home"></i><span>Home</span></a></li>
-                        <li class="uk-nav-header">Account</li>
-                        <li><a href="04_profile.html"><i class="ico_profile"></i><span>Profile</span></a></li>
-                        <li><a href="05_favourites.html"><i class="ico_favourites"></i><span>Favourites</span><span class="count">15</span></a></li>
-                        <li><a href="06_chats.html"><i class="ico_chats"></i><span>Chats</span></a></li>
-                        <li><a href="07_friends.html"><i class="ico_friends"></i><span>Friends</span></a></li>
-                        <li><a href="08_wallet.html"><i class="ico_wallet"></i><span>Wallet</span></a></li>
-                        <li class="uk-nav-header">Main</li>
-                        <li class="uk-active"><a href="09_games-store.html"><i class="ico_store"></i><span>Store</span></a></li>
-                        <li><a href="11_market.html"><i class="ico_market"></i><span>Market</span></a></li>
-                        <li><a href="12_streams.html"><i class="ico_streams"></i><span>Streams</span></a></li>
-                        <li><a href="13_community.html"><i class="ico_community"></i><span>Community</span></a></li>
-                        <li class="uk-nav-header">Support</li>
-                        <li><a href="#modal-report" data-uk-toggle><i class="ico_report"></i><span>Report</span></a></li>
-                        <li><a href="#modal-help" data-uk-toggle><i class="ico_help"></i><span>Help</span></a></li>
-                    </ul>
+                        <li><a href="05_favourites.html"><i class="ico_favourites"></i><span>Favourites</span></a></li>
+          
                 </div>
             </aside>
             <main class="page-main">
                 <ul class="uk-breadcrumb">
-                    <li><a href="09_games-store.html"><span data-uk-icon="chevron-left"></span><span>Back to Store</span></a></li>
-                    <li><span>Team Host</span></li>
+                    <li><a href="index.php"><span data-uk-icon="chevron-left"></span><span>Back</span></a></li>
+                    <li><span>HOTELS</span></li>
                 </ul>
-                <h3 class="uk-text-lead">Team Host</h3>
+                <h3 class="uk-text-lead">HOTELS</h3>
                 <div class="uk-grid uk-grid-small" data-uk-grid>
                     <div class="uk-width-2-3@s">
                         <div class="gallery">
@@ -135,14 +129,14 @@ foreach($hotel as $value){
                             </div>
                             <div class="js-gallery-small gallery-small">
                                 <div class="swiper">
-                                    <div class="swiper-wrapper">
+                                    <!-- <div class="swiper-wrapper">
                                         <div class="swiper-slide"> <img src="assets/img/c0.jpg" alt="image"></div>
                                         <div class="swiper-slide"> <img src="assets/img/c1.jpeg" alt="image"></div>
                                         <div class="swiper-slide"> <img src="assets/img/c2.jpeg" alt="image"></div>
                                         <div class="swiper-slide"> <img src="assets/img/c3.jpeg" alt="image"></div>
                                         <div class="swiper-slide"> <img src="assets/img/c4.jpeg" alt="image"></div>
 
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>
@@ -157,7 +151,7 @@ foreach($hotel as $value){
                                     <div>Reviews:</div>
                                     <div class="game-card__rating"><span>4.7</span><i class="ico_star"></i><span class="rating-vote">(433)</span></div>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <div>Release date:</div>
                                     <div>24 Apr, 2018</div>
                                 </li>
@@ -168,27 +162,17 @@ foreach($hotel as $value){
                                 <li>
                                     <div>Platforms:</div>
                                     <div class="game-card__platform"><i class="ico_windows"></i><i class="ico_apple"></i></div>
-                                </li>
+                                </li> -->
                             </ul>
                             <ul class="game-profile-card__type">
                                 <li><span>Strategy</span></li>
                                 <li><span>Survival</span></li>
                                 <li><span>City Builder</span></li>
-                                <li><span> $nom</span></li>
+                                <li><span>Dark</span></li>
                             </ul>
                         </div>
                         <div class="game-profile-price">
-                          <button  class="uk-button uk-button-danger uk-width-1-1" type="button">
-                              <span class="ico_shopping-cart"></span>
-                              <span>Buy Now</span>
-                            </button>
-                            <a href="favoris.php? id= <?php echo $value-> setId_hotels ()   ?>"><button class="uk-button uk-button-primary uk-width-1-1" type="button">
-                                <span class="ico_add-square"></span><span>Add to Favourites</span>
-                            </button>
-                        </a>
-                        </div>
-                    </div>
-                </div>
+                            <div class="game-profile-price__value"></div><button class="uk-button uk-button-danger uk-width-1-1" type="button"><span class="ico_shopping-cart"></span><span>Add favoris</span></button>
             </main>
         </div>
     </div>
