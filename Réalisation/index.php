@@ -110,17 +110,17 @@
                                     <div class="swiper-slide">
                                         <div class="recommend-slide">
                                             <div class="tour-slide__box">
-                                                <a href=""><img src="assets/img/t1.jpg" alt="banner"></a>
+                                                <a href=""><img src="assets/img/Mven2.jpg" alt="banner"></a>
 
                                             </div>
                                         </div>
                                     </div>
-
+                                    
 
                                     <div class="swiper-slide">
                                         <div class="recommend-slide">
                                             <div class="tour-slide__box">
-                                                <a href=""><img src="assets/img/t2.jpg" alt="banner"></a>
+                                                <a href=""><img src="assets/img/movenpick-.jpg" alt="banner"></a>
 
 
                                             </div>
@@ -134,22 +134,12 @@
 
 
 
-                                </div>
+                                </div> 
                                 <!-- <div class="swipper-nav">
                                     <div class="swiper-button-prev"></div>
                                     <div class="swiper-button-next"></div>
                                 </div> -->
-                                <div class="swiper-pagination"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-width-1-3@l uk-width-3-3@m uk-width-3-3@s">
-                        <!-- <h3 class="uk-text-lead">Trending N</h3> -->
-                        <div class="js-trending">
-                            <div class="swiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="game-card --horizontal">
+                           
                                             <!-- <div class="game-card__box"> -->
                                                 <!-- <div class="game-card__media"><a href="10_game-profile.html"><img src="assets/img/trending2.jpg"  alt="Alien Games" /></a></div>
                                                 <div class="game-card__info"><a class="game-card__title"href="product-details.php?id=> Alien Games</a>
@@ -170,10 +160,10 @@
                                                         </div>
                                                     </div>
                                                 </div> -->
-                                            </div>
+                                            <!-- </div>
                                         </div>
                                     </div>
-                                    
+                                     -->
                                     <!-- <div class="swiper-slide">
                                         <div class="game-card --horizontal">
                                             <div class="game-card__box">
@@ -200,7 +190,7 @@
                                         </div>
                                     </div> -->
 
-                                </div>
+                               
                                 <!-- <div class="swipper-nav">
                                     <div class="swiper-button-prev"></div>
                                     <div class="swiper-button-next"></div>
@@ -214,23 +204,22 @@
                         <div class="js-popular">
                             <div class="swiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                    <?php
-                    foreach($data as $value){
-            ?>
+                                    <div class="">
                                         <div class="game-card">
+                                              <?php
+                                                foreach($data as $value){?>
                                             <div class="game-card__box">
-                                                <div class="game-card__media"><a href="detailfavoris.php"><img src="assets/img/game-1.jpg" alt="Solitary Crusade" /></a></div>
-                                                <div class="game-card__info"><a class="game-card__title" href="detailfavoris.php"> <?= $value->getNom_Hotel() ?></a>
+                                                <div class=""><a href="detailfavoris.php"><img src="assets/img/<?= $value->getPhoto() ?> " alt="Solitary Crusade" /></a></div>
+                                                <div class="game-card__info"><a href="detailfavoris.php"> <?= $value->getNom_Hotel() ?></a>
                                                     <div class="game-card__genre">Shooter / Platformer</div>
-                                                    <div class="game-card__rating-and-price">
-                                                        <!-- <div class="game-card__rating"><span>4.8</span><i class="ico_star"></i></div>
+                                                    <!-- <div class="game-card__rating-and-price">
+                                                         <div class="game-card__rating"><span>4.8</span><i class="ico_star"></i></div>
                                                         <div class="game-card__price"><span>$4.99 </span></div> -->
-                                                    </div>
+                                                    </div> 
                                                     <div class="game-card__bottom">
-                                                        <!-- <div class="game-card__platform"><i class="ico_windows"></i><i class="ico_apple"></i></div>
-                                                        <!-- <div class="game-card__users">
-                                                      <ul class="users-list">
+                                                        <!-- <div class="game-card__platform"><i class="ico_windows"></i><i class="ico_apple"></i></div> -->
+                                                        <div class="game-card__users">
+                                                          <!-- <ul class="users-list">
                                                                 <li><img src="assets/img/user-1.png" alt="user" /></li>
                                                                 <li><img src="assets/img/user-2.png" alt="user" /></li>
                                                                 <li><img src="assets/img/user-3.png" alt="user" /></li>
@@ -241,12 +230,15 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <?php }?>
                                     </div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </div>
+
+                                 </div>
+                            </div>
+                        </div>
+                
+                   </div>
 
                                    
 
