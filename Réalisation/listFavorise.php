@@ -1,27 +1,16 @@
 <?php
-
     include "FavorisManager.php";
-    include "HotelsManager.php";
-    $hotelsManager = new HotelsManager();
-    $FavorisManager = new FavorisManager();
+    // Trouver tous les employés depuis la base de données 
+    $favorisManager = new FavorisManager();
+    $data = $favorisManager->afficher_Favoris();
 
-    if(isset($_GET['id'])){
-        
-    $data = $hotelsManager->afficher_hotel_par_id($_GET["id"]);
-    }
-
-if(!empty($_POST)){
-	$Favoris = new Favoris;
-	
-	$Favoris->setId_hotels($_GET['id']);
-	$FavorisManager->Ajouter($Favoris);
-	
-	// Redirection vers la page index.php
-	header("Location:index.php");
+foreach ($data as  $value) {
 }
 
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +35,7 @@ if(!empty($_POST)){
 
 </head>
 
-<body class="page-store">
+<body class="page-favourites">
 
     <input id="toggle" type="checkbox">
     <script type="text/javascript">
@@ -102,86 +91,85 @@ if(!empty($_POST)){
                 <div class="sidebar-box">
                     <ul class="uk-nav">
                         <li><a href="index.php"><i class="ico_home"></i><span>Home</span></a></li>
-                        <li><a href="listFavorise.php"><i class="ico_favourites"></i><span>Favourites</span></a></li>
-          
+           
+                        <li class="uk-active"><a href="listFavorise.php"><i class="ico_favourites"></i><span>Favourites</span></a></li>
+                      
+                    </ul>
                 </div>
             </aside>
-
-            <?php
-            foreach($data as $value){
-            ?>
             <main class="page-main">
-                <ul class="uk-breadcrumb">
-                <!-- <div  href ="index.php" class="game-profile-price__value"></div><button class="uk-button uk-button-danger " type="submit"><span>Back</span></button> -->
-                    <li><a href="index.php" ><span data-uk-icon="chevron-left"></span><button class="uk-button  uk-button-danger ">Back</button></a></li>
-                    <li><span></span></li>
-                </ul>
-                <h3 class="uk-text-lead"><?= $value->getNom_Hotel() ?></h3>
-                <div class="uk-grid uk-grid-small" data-uk-grid>
-                    <div class="uk-width-2-3@s">
-                        <div class="gallery">
-                            <div class="js-gallery-big gallery-big">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide"><img src="assets/img/<?= $value->getPhoto() ?>" alt="image"></div>
-                                       
-
-
+                <div class="uk-grid" data-uk-grid>
+                    <div class="uk-width-2-3@l">
+                        <div class="widjet --filters">
+                            <div class="widjet__head">
+                                <h3 class="uk-text-lead">My Favourites</h3>
+                            </div>
+                            <div class="widjet__body">
+                                <div class="uk-grid uk-child-width-1-4@xl uk-child-width-1-2@s uk-flex-middle uk-grid-small" data-uk-grid>
+                                    <div class="uk-width-1-1">
+                                        <!-- <div class="search">
+                                            <div class="search__input"><i class="ico_search"></i><input type="search" name="search" placeholder="Search"></div>
+                                            <div class="search__btn"><button type="button"><i class="ico_microphone"></i></button></div>
+                                        </div> -->
                                     </div>
+                                    <!-- <div><select class="js-select">
+                                            <option value="">Sort By: Price</option>
+                                            <option value="Price 1">Price 1</option>
+                                            <option value="Price 2">Price 2</option>
+                                            <option value="Price 3">Price 3</option>
+                                        </select></div>
+                                    <div><select class="js-select">
+                                            <option value="">Category: All</option>
+                                            <option value="Category 1">Category 1</option>
+                                            <option value="Category 2">Category 2</option>
+                                            <option value="Category 3">Category 3</option>
+                                        </select></div>
+                                    <div><select class="js-select">
+                                            <option value="">Platform: All</option>
+                                            <option value="Platform 1">Platform 1</option>
+                                            <option value="Platform 2">Platform 2</option>
+                                            <option value="Platform 3">Platform 3</option>
+                                        </select></div> -->
+                                    <!-- <div class="uk-text-right"><a href="#!">15 items</a></div> -->
                                 </div>
                             </div>
-                            <div class="js-gallery-small gallery-small">
-                                <div class="swiper">
-                                    <!-- <div class="swiper-wrapper">
-                                        <div class="swiper-slide"> <img src="assets/img/c0.jpg" alt="image"></div>
-                                        <div class="swiper-slide"> <img src="assets/img/c1.jpeg" alt="image"></div>
-                                        <div class="swiper-slide"> <img src="assets/img/c2.jpeg" alt="image"></div>
-                                        <div class="swiper-slide"> <img src="assets/img/c3.jpeg" alt="image"></div>
-                                        <div class="swiper-slide"> <img src="assets/img/c4.jpeg" alt="image"></div>
+                        </div>
+                        <?php
+                    foreach($data as $value){
 
-                                    </div> -->
+            ?>
+
+                        <div class="game-card --horizontal favourites-game">
+                            <div class="game-card__box">
+                                <div class="game-card__media"><a href="10_game-profile.html"><img src="assets/img/<?= $value->getPhoto() ?>" alt="Werewolf Complex" /></a></div>
+                                <div class="game-card__info"><a class="game-card__title" href="10_game-profile.html"> <?= $value->getNom_Hotel() ?></a>
+                                    <div class="game-card__genre"><?= $value->getDescription() ?></div>
+                                    <div class="game-card__rating-and-price">
+                                        <div class="game-card__rating"><span>4.5</span><i class="ico_star"></i></div>
+                                        <br>
+
+                                        <div class=""><p></p></div>
+                                    </div>
+                                    <div class="game-card__bottom">
+                                       
+                                    </div>
+                                    <div class="game-card__genre"> <?= $value->getAdress() ?></div>
+                                    
                                 </div>
-                                <div class="swiper-pagination"></div>
+                               
+                                <a href="suprimmer.php?id=<?php echo $value->getId_favoris() ?>"> <button>suprimmer</button></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="uk-width-1-3@s">
-                        <div class="game-profile-card">
-                            <div  class="game-profile-card__media" > Description : <p><?= $value->getDescription() ?></p></div>
-                            <div class="game-profile-card__intro"><span></span></div>
-                            <div class="game-card__rating"><span>4.5</span><i class="ico_star"></i></div>
-                            <ul class="game-profile-card__list">
-                                <li>
-                                    <div>Adresse : <?= $value->getAdress() ?> </div>
-                                    <div > <p></p></div>
-                                </li>
-                                <?php }?>   
-                                <!-- <li>
-                                    <div>Release date:</div>
-                                    <div>24 Apr, 2018</div>
-                                </li>
-                                <li>
-                                    <div>Developer:</div>
-                                    <div>11 bit studios</div>
-                                </li>
-                                <li>
-                                    <div>Platforms:</div>
-                                    <div class="game-card__platform"><i class="ico_windows"></i><i class="ico_apple"></i></div>
-                                </li> -->
-                            </ul>
-                           
-                        </div>
-                        <form action="" method="post">
-                        <div class="game-profile-price">
-                            <div class="game-profile-price__value"></div><button class="uk-button uk-button-danger uk-width-1-1" type="submit"><span class="ico_shopping-cart"></span><span>Add favoris</span></button>
-                        
-            
-                        </main>
+                      
+                        <?php }?>
+                
+                </div>
+            </main>
         </div>
     </div>
     <div class="page-modals">
         <div class="uk-flex-top" id="modal-report" data-uk-modal>
-            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical"><button class="uk-modal-close-default" type="submit" data-uk-close></button>
+            <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical"><button class="uk-modal-close-default" type="button" data-uk-close></button>
                 <h2 class="uk-modal-title">Report</h2>
                 <form class="uk-form-stacked" action="#">
                     <div class="uk-margin">

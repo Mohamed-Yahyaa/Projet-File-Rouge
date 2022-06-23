@@ -15,7 +15,7 @@ class HotelsManager{
     public function Ajouter($hotels){
 
        $nom =  $hotels->getNom_Hotel();
-       $description =$hotels->getDescription();
+       $description = htmlspecialchars($hotels->getDescription());
        $photo= $hotels->getPhoto();
        $adress= $hotels->getAdress();
        

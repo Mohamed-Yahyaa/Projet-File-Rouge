@@ -43,22 +43,42 @@
     </script>
 
 
-  
+    <!-- Loader-->
+    <!-- <div id="page-preloader">
+        <div class="preloader-1">
+            <div class="loader-text">Loading</div>
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+            <span class="line line-4"></span>
+            <span class="line line-5"></span>
+            <span class="line line-6"></span>
+            <span class="line line-7"></span>
+            <span class="line line-8"></span>
+            <span class="line line-9"></span>
+        </div>
+
+    </div> -->
+    <!-- Loader end-->
 
     <div class="page-wrapper">
         <header class="page-header">
             <div class="page-header__inner">
                 <div class="page-header__sidebar">
                     <div class="page-header__menu-btn"><button class="menu-btn ico_menu is-active"></button></div>
-                    <div class="page-header__logo"><img src="assets/img/logo.png" alt="logo"><span class="page-header__logo_text">Hotels</span></div>
+                    <div class="page-header__logo"><img src="assets/img/logo.png" alt="logo"><span class="page-header__logo_text">HOTELS</span></div>
                 </div>
                 <div class="page-header__content">
                     <div class="page-header__search">
-        
+                        <!-- <div class="search">
+                            <div class="search__input"><i class="ico_search"></i><input type="search" name="search" placeholder="Search"></div>
+                            <div class="search__btn"><button type="button"><i class="ico_microphone"></i></button></div>
+                        </div> -->
                     </div>
                     <div class="page-header__action">
-                        <a class="action-btn" href="06_chats.html"><i class="ico_message"></i><span class="animation-ripple-delay1"></span></a>
-      
+                        <!-- <a class="action-btn" href="06_chats.html"><i class="ico_message"></i><span class="animation-ripple-delay1"></span></a> -->
+                        <!-- <a class="action-btn" href="07_friends.html"><i class="ico_notification"></i><span class="animation-ripple-delay2"></span></a> -->
+                        <!-- <a class="profile" href="08_wallet.html"><img src="assets/img/profile.png" alt="profile"></a> -->
                     </div>
                 </div>
             </div>
@@ -70,16 +90,20 @@
                         <li class="uk-active"><a href="index.php"><i class="ico_home"></i><span>Home</span></a></li>
                         <li class="uk-nav-header">Account</li>
                         
-                        <li><a href="detailfavoris.php"><i class="ico_favourites"></i><span>Favourites</span></a></li>
+                        <li><a href="listFavorise.php"><i class="ico_favourites"></i><span>Favourites</span></a></li>
     
-         
+                        <!-- <li class="uk-nav-header">Main</li>
+                        <li><a href="09_games-store.html"><i class="ico_store"></i><span>Store</span></a></li>
+                        
+                        <li><a href="#modal-report" data-uk-toggle><i class="ico_report"></i><span>Report</span></a></li>
+                        <li><a href="#modal-help" data-uk-toggle><i class="ico_help"></i><span>Help</span></a></li> -->
                     </ul>
                 </div>
             </aside>
             <main class="page-main">
                 <div class="uk-grid" data-uk-grid>
                     <div class="uk-width-2-3@l uk-width-3-3@m uk-width-3-3@s">
-                        <h3 class="uk-text-lead">Recommended & Featured</h3>
+                        <h3 class="uk-text-lead">Home</h3>
                         <div class="js-recommend">
                             <div class="swiper">
                                 <div class="swiper-wrapper">
@@ -176,7 +200,7 @@
                         </div>
                     </div>
                     <div class="uk-width-1-1">
-                        <h3 class="uk-text-lead">Most Popular</h3>
+                        <h3 class="uk-text-lead">Hotels</h3>
                         <div class="js-popular">
                             <div class="swiper">
                                 <div class="swiper-wrapper">
@@ -185,9 +209,11 @@
                                               <?php
                                                 foreach($data as $value){?>
                                             <div class="game-card__box">
-                                                <div class=""><a href="detailfavoris.php"><img src="assets/img/<?= $value->getPhoto() ?> " alt="Solitary Crusade" /></a></div>
+                                                <div class=""><a ><img style="width: 300px;" src="assets/img/<?= $value->getPhoto() ?> " alt="Solitary Crusade" /></a></div>
                                                 <div class="game-card__info"><a href="detailfavoris.php"> <?= $value->getNom_Hotel() ?></a>
-                                                    <div class="game-card__genre">Shooter / Platformer</div>
+                                                    <div class="game-card__genre"></div>
+                                                    <div class="game-card__rating"><span>4.5</span><i class="ico_star"></i></div>
+                                                    <a href="detailfavoris.php?id=<?= $value->getId() ?>"><button>show</button></a>
                                                     <!-- <div class="game-card__rating-and-price">
                                                          <div class="game-card__rating"><span>4.8</span><i class="ico_star"></i></div>
                                                         <div class="game-card__price"><span>$4.99 </span></div> -->

@@ -1,9 +1,15 @@
 <?php
-    include "HotelsManager.php";
+    include "FavorisManager.php";
     // Trouver tous les employés depuis la base de données 
-    $hotelsManager = new HotelsManager();
-    $data = $hotelsManager->afficher_devis();
+    $favorisManager = new FavorisManager();
+    $data = $favorisManager->afficher_Favoris();
+
+foreach ($data as  $value) {
+}
+
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -71,12 +77,13 @@
             <div>
             <div class="menu-sidebar__content  js-scrollbar1 ">
                 <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
+                   <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
                            
                         <li>
                             <a href="index.php">
-                                <i class="fas fa-table"></i>Hotel</a>
+                                <i class="fas fa-table"></i>Hotel
+                            </a>
                                
                         </li>
                         <li>
@@ -118,7 +125,7 @@
                     <div class="container-fluid">
                     <div>
            <h1 class="titre text-center ">
-           <strong>TABLEAU DES Hotels</strong>
+           <strong>TABLEAU DES Favoris</strong>
            </h1>
        </div>
          
@@ -128,6 +135,7 @@
                                     <table class="table table-borderless table-striped ">
                                         <thead>
                                             <tr>
+                                                <th>id favoris</th>
                                                 <th>Nom Hotel</th>
                                                 <th>Description</th>
                                                 <th>Adress</th>
@@ -139,18 +147,18 @@
                                         <tbody>
                                         <?php
                     foreach($data as $value){
-                        
+
             ?>
-            
 
             <tr>
                 <td><?= $value->getNom_Hotel() ?></td>
+                <td><?= $value->getId_Hotels() ?></td>
+                <td><?= $value->getId_favoris() ?></td>
                 <td><?= $value->getDescription() ?></td>
                 <td><?= $value->getAdress() ?></td>
                 <td ><img style="width: 100px;" src="img/<?= $value->getPhoto() ?>" ></td>
                 <td>
                    
-                    <a href="suprimmer.php?id=<?php echo $value->getId() ?>">Supprime</a>
                 </td>
             </tr>
                                            

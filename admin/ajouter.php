@@ -1,8 +1,7 @@
 <?php
 
 include "HotelsManager.php";
-// include "Devis.php";
-// Trouver tous les employés depuis la base de données 
+
 $HotelsManager = new HotelsManager();
 
 
@@ -13,6 +12,7 @@ if(!empty($_POST)){
 	$hotels->setDescription($_POST['Description']);
 	$hotels->setPhoto($_POST['Photo']);
 	$hotels->setAdress($_POST['Adress']);
+    
 	$HotelsManager->Ajouter($hotels);
 	
 	// Redirection vers la page index.php

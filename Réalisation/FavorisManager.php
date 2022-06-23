@@ -18,7 +18,7 @@ class FavorisManager{
      
        
         // requête SQL
-        $insertRow="INSERT INTO favoris(id_hotels) 
+        $insertRow="INSERT INTO favoris(id_hotel) 
                                 VALUES('$id_hotels')";
 
         mysqli_query($this->getConnection(), $insertRow);
@@ -52,7 +52,7 @@ class FavorisManager{
  
 
     public function Supprimer($id){
-        $RowDelet = "DELETE FROM favoris WHERE id_favoris='$id_favoris'";
+        $RowDelet = "DELETE FROM favoris WHERE id_favoris='$id'";
         mysqli_query($this->getConnection(), $RowDelet);
     }
 

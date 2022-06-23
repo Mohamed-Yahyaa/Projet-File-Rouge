@@ -47,6 +47,25 @@ class HotelsManager{
           return $TableData;
     }
 
+    public function afficher_hotel_par_id($id){
+        $SelctRow = "SELECT * FROM hotels WHERE id ='$id' " ;
+        $query = mysqli_query($this->getConnection() ,$SelctRow);
+        $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+        $TableData = array();
+        foreach ($data as $value_Data) {
+            $hotels = new Hotels();
+            $hotels->setId($value_Data['id']);
+            $hotels->setNom_Hotel($value_Data['Nom_Hotel']);
+            $hotels->setDescription($value_Data['Description']);
+            $hotels->setPhoto($value_Data['Photo']);
+            $hotels->setAdress($value_Data['Adress']);
+            
+            array_push($TableData, $hotels);
+        }
+          return $TableData;
+    }
+
 
   
 
