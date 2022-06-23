@@ -43,23 +43,7 @@
     </script>
 
 
-    <!-- Loader-->
-    <!-- <div id="page-preloader">
-        <div class="preloader-1">
-            <div class="loader-text">Loading</div>
-            <span class="line line-1"></span>
-            <span class="line line-2"></span>
-            <span class="line line-3"></span>
-            <span class="line line-4"></span>
-            <span class="line line-5"></span>
-            <span class="line line-6"></span>
-            <span class="line line-7"></span>
-            <span class="line line-8"></span>
-            <span class="line line-9"></span>
-        </div>
-
-    </div> -->
-    <!-- Loader end-->
+  
 
     <div class="page-wrapper">
         <header class="page-header">
@@ -70,15 +54,11 @@
                 </div>
                 <div class="page-header__content">
                     <div class="page-header__search">
-                        <!-- <div class="search">
-                            <div class="search__input"><i class="ico_search"></i><input type="search" name="search" placeholder="Search"></div>
-                            <div class="search__btn"><button type="button"><i class="ico_microphone"></i></button></div>
-                        </div> -->
+        
                     </div>
                     <div class="page-header__action">
                         <a class="action-btn" href="06_chats.html"><i class="ico_message"></i><span class="animation-ripple-delay1"></span></a>
-                        <!-- <a class="action-btn" href="07_friends.html"><i class="ico_notification"></i><span class="animation-ripple-delay2"></span></a> -->
-                        <!-- <a class="profile" href="08_wallet.html"><img src="assets/img/profile.png" alt="profile"></a> -->
+      
                     </div>
                 </div>
             </div>
@@ -92,11 +72,7 @@
                         
                         <li><a href="detailfavoris.php"><i class="ico_favourites"></i><span>Favourites</span></a></li>
     
-                        <!-- <li class="uk-nav-header">Main</li>
-                        <li><a href="09_games-store.html"><i class="ico_store"></i><span>Store</span></a></li>
-                        
-                        <li><a href="#modal-report" data-uk-toggle><i class="ico_report"></i><span>Report</span></a></li>
-                        <li><a href="#modal-help" data-uk-toggle><i class="ico_help"></i><span>Help</span></a></li> -->
+         
                     </ul>
                 </div>
             </aside>

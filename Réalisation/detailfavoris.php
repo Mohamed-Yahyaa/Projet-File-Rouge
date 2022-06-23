@@ -1,8 +1,7 @@
 <?php
 
 include "HotelsManager.php";
-// include "Devis.php";
-// Trouver tous les employés depuis la base de données 
+
 $hotelsManager = new HotelsManager();
 
 
@@ -55,23 +54,7 @@ if(!empty($_POST)){
 
     </script>
 
-    <!-- Loader-->
-    <!-- <div id="page-preloader">
-        <div class="preloader-1">
-            <div class="loader-text">Loading</div>
-            <span class="line line-1"></span>
-            <span class="line line-2"></span>
-            <span class="line line-3"></span>
-            <span class="line line-4"></span>
-            <span class="line line-5"></span>
-            <span class="line line-6"></span>
-            <span class="line line-7"></span>
-            <span class="line line-8"></span>
-            <span class="line line-9"></span>
-        </div>
 
-    </div> -->
-    <!-- Loader end-->
 
 
     <div class="page-wrapper">
@@ -83,10 +66,7 @@ if(!empty($_POST)){
                 </div>
                 <div class="page-header__content">
                     <div class="page-header__search">
-                        <!-- <div class="search">
-                            <div class="search__input"><i class="ico_search"></i><input type="search" name="search" placeholder="Search"></div>
-                            <div class="search__btn"><button type="button"><i class="ico_microphone"></i></button></div>
-                        </div> -->
+                     
                     </div>
                     <div class="page-header__action">
                         <a class="action-btn" href="06_chats.html"><i class="ico_message"></i><span class="animation-ripple-delay1"></span></a>
@@ -129,14 +109,7 @@ if(!empty($_POST)){
                             </div>
                             <div class="js-gallery-small gallery-small">
                                 <div class="swiper">
-                                    <!-- <div class="swiper-wrapper">
-                                        <div class="swiper-slide"> <img src="assets/img/c0.jpg" alt="image"></div>
-                                        <div class="swiper-slide"> <img src="assets/img/c1.jpeg" alt="image"></div>
-                                        <div class="swiper-slide"> <img src="assets/img/c2.jpeg" alt="image"></div>
-                                        <div class="swiper-slide"> <img src="assets/img/c3.jpeg" alt="image"></div>
-                                        <div class="swiper-slide"> <img src="assets/img/c4.jpeg" alt="image"></div>
-
-                                    </div> -->
+               
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>
@@ -151,18 +124,7 @@ if(!empty($_POST)){
                                     <div>Reviews:</div>
                                     <div class="game-card__rating"><span>4.7</span><i class="ico_star"></i><span class="rating-vote">(433)</span></div>
                                 </li>
-                                <!-- <li>
-                                    <div>Release date:</div>
-                                    <div>24 Apr, 2018</div>
-                                </li>
-                                <li>
-                                    <div>Developer:</div>
-                                    <div>11 bit studios</div>
-                                </li>
-                                <li>
-                                    <div>Platforms:</div>
-                                    <div class="game-card__platform"><i class="ico_windows"></i><i class="ico_apple"></i></div>
-                                </li> -->
+                          
                             </ul>
                             <ul class="game-profile-card__type">
                                 <li><span>Strategy</span></li>

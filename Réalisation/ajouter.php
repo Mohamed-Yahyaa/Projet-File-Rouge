@@ -1,8 +1,7 @@
 <?php
 
 include "HotelsManager.php";
-// include "Devis.php";
-// Trouver tous les employés depuis la base de données 
+
 $hotelsManager = new HotelsManager();
 
 
